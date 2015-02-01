@@ -344,6 +344,7 @@ GameObject:
   - 95: {fileID: 1009599918}
   - 114: {fileID: 1009599919}
   - 58: {fileID: 1009599920}
+  - 114: {fileID: 1009599921}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -439,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7075943facc58f4dbdf53f2312d7b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 800
+  speed: 5
+  jumpForce: 1000
   groundCheck: {fileID: 180837811}
   whatIsGround:
     serializedVersion: 2
@@ -456,6 +457,22 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: 5.76999998
   m_Center: {x: 0, y: 0}
+--- !u!114 &1009599921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009599913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103d5e35ee320bb43a5bd34852f674da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shit: {fileID: 100000, guid: aa9c3be5d01b4ac499a5b8cf99982d4e, type: 2}
+  startWait: 0
+  makeShitWait: .5
+  distanceXFromProducerAss: .200000003
+  sizeShitFactor: 1
 --- !u!1 &1282428490
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcfe15feadfb304daa219a8466b52c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 3
-  tileSizeZ: 20.3999996
+  scrollSpeed: 0
+  tileSizeZ: 0
 --- !u!1 &1417673330
 GameObject:
   m_ObjectHideFlags: 0
