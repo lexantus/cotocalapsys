@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	public float jumpForce;
 
-	Animator anim;
+	//Animator anim;
 
 	bool grounded = false;
 	public Transform groundCheck;
@@ -15,17 +15,17 @@ public class PlayerController : MonoBehaviour
 
 	void Start () 
 	{
-		anim = GetComponent<Animator> ();
+		//anim = GetComponent<Animator> ();
 	}
 	
 	void FixedUpdate () 
 	{
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 
-		anim.SetBool ("Ground", grounded);
+		/*anim.SetBool ("Ground", grounded);
 
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
-		anim.SetFloat ("Speed", Mathf.Abs (speed));
+		anim.SetFloat ("Speed", Mathf.Abs (speed));*/
 
 		rigidbody2D.velocity = new Vector2 (speed, rigidbody2D.velocity.y);
 	}
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (grounded && Input.GetKeyDown (KeyCode.Space))
 		{
-			anim.SetBool("Ground", false);
+			//anim.SetBool("Ground", false);
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 	}
