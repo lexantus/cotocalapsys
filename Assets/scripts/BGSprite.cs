@@ -20,7 +20,7 @@ public class BGSprite : MonoBehaviour {
 
     void OnBecameInvisible() {
         if( transform == bgController.BackGround[0].transform ) {
-            //levelGenerator.PlatformGenerate( bgController.BackGround[1] );
+            levelGenerator.PlatformGenerate( bgController.BackGround[1] );
             bgController.Flip();
         }
     }

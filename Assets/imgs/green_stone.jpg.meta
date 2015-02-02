@@ -47,10 +47,10 @@ TextureImporter:
     - name: green_stone_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 96
-        width: 80
-        height: 10
+        x: 53
+        y: 479
+        width: 400
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
