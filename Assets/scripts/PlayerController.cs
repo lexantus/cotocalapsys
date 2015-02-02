@@ -3,41 +3,39 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour 
 {
-	public float maxSpeed = 10f;
-	bool facingRight = true;
+	public float speed;
+	public float jumpForce;
 
-	Animator anim;
+	//Animator anim;
+
+	bool grounded = false;
+	public Transform groundCheck;
+	float groundRadius = 0.2f;
+	public LayerMask whatIsGround;
 
 	void Start () 
 	{
-		anim = GetComponent<Animator> ();
+		//anim = GetComponent<Animator> ();
 	}
 	
 	void FixedUpdate () 
 	{
-		float move = Input.GetAxis ("Horizontal");
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 
-		anim.SetFloat ("Speed", Mathf.Abs (move));
+		/*anim.SetBool ("Ground", grounded);
 
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+		anim.SetFloat ("Speed", Mathf.Abs (speed));*/
 
-		if (move > 0 && !facingRight)
-		{
-			Flip ();
-		}
-		else if (move < 0 && facingRight)
-		{
-			Flip ();
-		}
+		rigidbody2D.velocity = new Vector2 (speed, rigidbody2D.velocity.y);
 	}
 
-	void Flip()
+	void Update()
 	{
-		Debug.Log ("Flip");
-		facingRight = !facingRight;
-
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		if (grounded && Input.GetKeyDown (KeyCode.Space))
+		{
+			//anim.SetBool("Ground", false);
+			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+		}
 	}
 }
