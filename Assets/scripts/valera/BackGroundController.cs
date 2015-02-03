@@ -1,18 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackGroundController : MonoBehaviour {
-
+public class BackGroundController : MonoBehaviour
+{
     public SpriteRenderer[] BackGround;
 
     private float width;
 
 
-    void Start() {
+    void Start () 
+	{
         width = Mathf.FloorToInt( BackGround[0].bounds.size.x );
     }
 
-    public void Flip() {
+    public void Flip ()
+	{
         SpriteRenderer sp = BackGround[0];
         BackGround[0] = BackGround[1];
         BackGround[1] = sp;
