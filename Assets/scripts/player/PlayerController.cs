@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour 
@@ -13,9 +14,14 @@ public class PlayerController : MonoBehaviour
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+    public Text ScoreText;
+    private long score;
+
 	void Start () 
 	{
 		//anim = GetComponent<Animator> ();
+        score = 0;
+        ScoreText.text = "Score: 0";
 	}
 	
 	void FixedUpdate () 
@@ -38,4 +44,9 @@ public class PlayerController : MonoBehaviour
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 	}
+
+    public void GetScore( long score ) {
+        this.score += score;
+        ScoreText.text = "Score: " + this.score.ToString();
+    }
 }
