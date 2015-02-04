@@ -6,16 +6,21 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	public float jumpForce;
 
-	//Animator anim;
+	public Animator anim;
 
 	bool grounded = false;
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+	public GUIText ScoreText;
+	private long score;
+
 	void Start () 
 	{
-		//anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
+		score = 0;
+		ScoreText.text = "Score: 0";
 	}
 	
 	void FixedUpdate () 
@@ -37,5 +42,11 @@ public class PlayerController : MonoBehaviour
 			//anim.SetBool("Ground", false);
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
+	}
+
+	public void GetScore( long score )
+	{
+		this.score += score;
+		ScoreText.text = "Score: " + this.score.ToString();
 	}
 }
